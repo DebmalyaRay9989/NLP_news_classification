@@ -34,7 +34,7 @@ def main():
 	# Layout Templates
 	html_temp = """
 	<div style="background-color:#464e5f;padding:10px;border-radius:10px;margin:10px;">
-	<h1 style="color:white;text-align:center;">Streamlit ML App</h1>
+	<h1 style="color:white;text-align:center;">Streamlit ML App - News Classifier </h1>
 	<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;" >
 	<p style="text-align:justify">{}</p>
 	</div>
@@ -70,7 +70,7 @@ def main():
 
 	if choice == 'Prediction':
 		st.info("Prediction with ML")
-
+		st.markdown(article_temp,unsafe_allow_html=True)
 		news_text = st.text_area("Enter News Here","Type Here")
 		all_ml_models = ["Logistic Regression","Random Forest","Decision Tree"]
 		model_choice = st.selectbox("Select Model",all_ml_models)
