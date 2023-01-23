@@ -70,7 +70,6 @@ def main():
 
 	if choice == 'Prediction':
 		st.info("Prediction with ML")
-		st.markdown(article_temp,unsafe_allow_html=True)
 		news_text = st.text_area("Enter News Here","Type Here")
 		all_ml_models = ["Logistic Regression","Random Forest","Decision Tree"]
 		model_choice = st.selectbox("Select Model",all_ml_models)
