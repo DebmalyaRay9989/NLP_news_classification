@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use("Agg")
 from wordcloud import WordCloud
+from nltk.probability import FreqDist
 
 
 # load Vectorizer 
@@ -14,10 +15,9 @@ news_vectorizer = open("models/final_news_cv_vectorizer.pkl","rb")
 news_cv = joblib.load(news_vectorizer)
 
 def load_prediction_models(model_file):
+
 	loaded_model = joblib.load(open(os.path.join(model_file),"rb"))
 	return loaded_model
-
-
 
 # Get the Keys
 def get_key(val,my_dict):
@@ -28,13 +28,14 @@ def get_key(val,my_dict):
 
 
 def main():
+
 	"""News Classifier"""
 	st.title("News Classifier")
 	
 	# Layout Templates
 	html_temp = """
 	<div style="background-color:#464e5f;padding:10px;border-radius:10px;margin:10px;">
-	<h1 style="color:white;text-align:center;">Streamlit ML App - News Classifier </h1>
+	<h1 style="color:white;text-align:center;"> Streamlit ML App - News Classifier </h1>
 	<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;" >
 	<p style="text-align:justify">{}</p>
 	</div>
@@ -131,6 +132,12 @@ def main():
 			plt.axis("off")
 			st.set_option('deprecation.showPyplotGlobalUse', False)
 			st.pyplot()
+
+		if st.checkbox("FrequencyDistribution"):
+			c_text = raw_text
+			fdist = FreqDist(c_text)
+			print(fdist.most_common(10))
+
 	else:
 		st.write("")
 		st.subheader("About")
@@ -138,14 +145,8 @@ def main():
 	
 		st.markdown("""
         ### NLP News Classifier With Different Models (With Streamlit)
-
         Python Tools Used: spacy, pandas, matplotlib, wordcloud, Pillow(PIL), Joblib
-
         """)
-
-
-
-
 
 
 if __name__ == '__main__':
