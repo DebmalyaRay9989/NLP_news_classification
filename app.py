@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use("Agg")
 from wordcloud import WordCloud
-from nltk.probability import FreqDist
 
 
 # load Vectorizer 
@@ -132,11 +131,6 @@ def main():
 			plt.axis("off")
 			st.set_option('deprecation.showPyplotGlobalUse', False)
 			st.pyplot()
-
-		if st.checkbox("FrequencyDistribution"):
-			c_text = raw_text
-			fdist = FreqDist(c_text)
-			print(fdist.most_common(10))
 
 	else:
 		st.write("")
