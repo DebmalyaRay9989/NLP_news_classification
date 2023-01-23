@@ -33,8 +33,10 @@ def main():
 	
 	# Layout Templates
 	html_temp = """
-	<div style="background-color:{};padding:10px;border-radius:10px">
-	<h1 style="color:{};text-align:center;">Simple Blog </h1>
+	<div style="background-color:#464e5f;padding:10px;border-radius:10px;margin:10px;">
+	<h1 style="color:white;text-align:center;">Streamlit ML App</h1>
+	<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="vertical-align: middle;width: 50px;height: 50px;border-radius: 50%;" >
+	<p style="text-align:justify">{}</p>
 	</div>
 	"""
 	title_temp ="""
